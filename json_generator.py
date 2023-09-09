@@ -73,9 +73,6 @@ def main():
     simu_id_file.close()
     sime_id_file.close()
 
-    print(json.dumps(simu_data, indent=4))
-    print(json.dumps(sime_data, indent=4))
-
 
 if __name__ == '__main__':
     main()
