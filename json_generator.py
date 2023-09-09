@@ -26,34 +26,36 @@ sample_schools = [
     "School of Business"
 ]
 
-simu_data = []
-sime_data = []
+simu_data = {}
+sime_data = {}
 
 
 def main():
     for i in range(20):
         first_name = random.choice(sample_first_names)
         last_name = random.choice(sample_last_names)
-        simu_data.append({
-            "id": random.randint(100000000, 999999999),
+        id = random.randint(100000000, 999999999)
+        simu_data[id] = {
+            "id": id,
             "first_name": first_name,
             "last_name": last_name,
             "university": random.choice(sample_universities),
             "email": first_name.lower() + last_name.lower() + "@uni.edu",
             "birthday": str(random.randint(1, 28)) + str(random.randint(1, 12)) + str(random.randint(1990, 2000))
-        })
+        }
 
     for i in range(20):
         first_name = random.choice(sample_first_names)
         last_name = random.choice(sample_last_names)
-        sime_data.append({
-            "id": random.randint(100000000, 999999999),
+        id = random.randint(100000000, 999999999)
+        sime_data[id] = {
+            "id": id,
             "first_name": first_name,
             "last_name": last_name,
             "school": random.choice(sample_schools),
             "email": first_name.lower() + last_name.lower() + "@school.edu",
             "birthday": str(random.randint(1, 28)) + str(random.randint(1, 12)) + str(random.randint(2000, 2010))
-        })
+        }
 
     simu_file = open("samples/simu.json", "w")
     sime_file = open("samples/sime.json", "w")
@@ -64,9 +66,10 @@ def main():
 
     simu_id_file = open("samples/simu_id.txt", "w")
     sime_id_file = open("samples/sime_id.txt", "w")
-    for i in range(20):
-        simu_id_file.write(str(simu_data[i]["id"]) + "\n")
-        sime_id_file.write(str(sime_data[i]["id"]) + "\n")
+    for key in simu_data.keys():
+        simu_id_file.write(str(key) + "\n")
+    for key in sime_data.keys():
+        sime_id_file.write(str(key) + "\n")
     simu_id_file.close()
     sime_id_file.close()
 
