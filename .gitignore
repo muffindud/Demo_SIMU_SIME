@@ -235,7 +235,7 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-samples/simu.json
-samples/sime.json
-samples/simu_id.txt
-samples/sime_id.txt
+#samples/simu.json
+#samples/sime.json
+#samples/simu_id.txt
+#samples/sime_id.txt
